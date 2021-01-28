@@ -1,0 +1,27 @@
+PODS:
+  - FBSnapshotTestCase (2.1.4):
+    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
+  - FBSnapshotTestCase/Core (2.1.4)
+  - FBSnapshotTestCase/SwiftSupport (2.1.4):
+    - FBSnapshotTestCase/Core
+  - ZZPageHelper (0.1.0)
+
+DEPENDENCIES:
+  - FBSnapshotTestCase
+  - ZZPageHelper (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - FBSnapshotTestCase
+
+EXTERNAL SOURCES:
+  ZZPageHelper:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
+  ZZPageHelper: d7d6f54f4bf4754fc99ff6836515cb814cdc5750
+
+PODFILE CHECKSUM: b1dfc3e70bc6758d5c818a9931fb16e65526fb83
+
+COCOAPODS: 1.10.1

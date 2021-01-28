@@ -1,0 +1,6 @@
+framework module ZZPageHelper {
+  umbrella header "ZZPageHelper-umbrella.h"
+
+  export *
+  module * { export * }
+}

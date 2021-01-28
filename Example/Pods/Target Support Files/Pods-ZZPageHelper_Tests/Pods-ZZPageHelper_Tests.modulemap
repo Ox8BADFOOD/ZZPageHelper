@@ -1,0 +1,6 @@
+framework module Pods_ZZPageHelper_Tests {
+  umbrella header "Pods-ZZPageHelper_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

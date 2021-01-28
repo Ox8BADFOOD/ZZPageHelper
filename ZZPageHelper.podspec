@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'https://github.com/bymiracles@163.com/ZZPageHelper'
+  s.homepage         = 'https://github.com/Ox8BADFOOD/ZZPageHelper'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'bymiracles@163.com' => '350991881@qq.com' }
