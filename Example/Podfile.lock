@@ -4,7 +4,11 @@ PODS:
   - FBSnapshotTestCase/Core (2.1.4)
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
-  - ZZPageHelper (0.1.0)
+  - MJRefresh (3.5.0)
+  - SVProgressHUD (2.2.5)
+  - ZZPageHelper (0.1.0):
+    - MJRefresh
+    - SVProgressHUD
 
 DEPENDENCIES:
   - FBSnapshotTestCase
@@ -13,6 +17,8 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - FBSnapshotTestCase
+    - MJRefresh
+    - SVProgressHUD
 
 EXTERNAL SOURCES:
   ZZPageHelper:
@@ -20,7 +26,9 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  ZZPageHelper: d7d6f54f4bf4754fc99ff6836515cb814cdc5750
+  MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  ZZPageHelper: ad788ee40babd720a86b043aef44c68d9a507024
 
 PODFILE CHECKSUM: b1dfc3e70bc6758d5c818a9931fb16e65526fb83
 

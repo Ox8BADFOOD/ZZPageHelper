@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MJRefresh.h>
+#import <MJRefresh/MJRefresh.h>
 #import "ZZReqResp.h"
 #import <SVProgressHUD/SVProgressHUD.h>
 NS_ASSUME_NONNULL_BEGIN

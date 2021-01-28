@@ -8,9 +8,9 @@
 
 #import "UITableView+ZZPageHelper.h"
 #import <objc/runtime.h>
-//#import <MJRefresh/MJRefresh.h>
-#import "ZZWeakify.h"
-#import "SVProgressHUD+Hisee.h"
+#import <MJRefresh/MJRefresh.h>
+
+//#import "SVProgressHUD+Hisee.h"
 
 static char kZZPageHelperOriginIndex;
 static char kZZPageHelperCurrentIndex;
@@ -42,13 +42,13 @@ static char kRowInPage;
     self.finishCountType = ZZPageFinishCountTypeCount;
     self.rowInPage = 10;
     self.loadingShow = ^(){
-        [SVProgressHUD gifLoading:HiseeLoading];
+//        [SVProgressHUD gifLoading:HiseeLoading];
     };
     self.errorShow = ^(NSString * _Nonnull errDesc) {
-        [SVProgressHUD danger:errDesc];
+//        [SVProgressHUD danger:errDesc];
     };
     self.loadingDismiss = ^(){
-        [SVProgressHUD dismiss];
+//        [SVProgressHUD dismiss];
     };
 }
 
@@ -89,41 +89,41 @@ static char kRowInPage;
 
 #pragma mark -- pageLoadSuccess/Failure 请求成功的处理
 -(ZZPageHelperReqSuccess)pageLoadSuccess{
-    @weakify(self);
+    __weak __typeof__(self) weakSelf = self;
     ZZPageHelperReqSuccess success = ^(){
-        @strongify(self);
-        [self bothEndRefreshing];
+        __strong __typeof(self) strongSelf = weakSelf;
+        [strongSelf bothEndRefreshing];
         
         //处理数据源
-        if (self.currentIndex == self.originIndex) {
-            self.dataArr = self.reqResp.respArr.mutableCopy;
+        if (strongSelf.currentIndex == strongSelf.originIndex) {
+            strongSelf.dataArr = strongSelf.reqResp.respArr.mutableCopy;
         }else{
-            if(self.reqResp.respArr.count){
-                [self.dataArr addObjectsFromArray:self.reqResp.respArr];
+            if(strongSelf.reqResp.respArr.count){
+                [strongSelf.dataArr addObjectsFromArray:strongSelf.reqResp.respArr];
             }
         }
         
         //处理刷到底的情况
-        self.maxIndex           = self.reqResp.maxIndex;
-        self.maxDataSourceCount = self.reqResp.maxCount;
+        strongSelf.maxIndex           = strongSelf.reqResp.maxIndex;
+        strongSelf.maxDataSourceCount = strongSelf.reqResp.maxCount;
         
-        if (self.finishCountType == ZZPageFinishCountTypeCount) {
-            if (self.dataArr.count >= self.maxDataSourceCount) {
-                [self.mj_footer endRefreshingWithNoMoreData];
+        if (strongSelf.finishCountType == ZZPageFinishCountTypeCount) {
+            if (strongSelf.dataArr.count >= strongSelf.maxDataSourceCount) {
+                [strongSelf.mj_footer endRefreshingWithNoMoreData];
             }
-        }else if(self.finishCountType == ZZPageFinishCountTypeIndex){
-            if (self.currentIndex >= self.maxIndex) {
-                [self.mj_footer endRefreshingWithNoMoreData];
+        }else if(strongSelf.finishCountType == ZZPageFinishCountTypeIndex){
+            if (strongSelf.currentIndex >= strongSelf.maxIndex) {
+                [strongSelf.mj_footer endRefreshingWithNoMoreData];
             }
-        }else if (self.finishCountType == ZZPageFinishCountTypeCuriosity){
-            if(self.reqResp.respArr.count < self.rowInPage){
-                [self.mj_footer endRefreshingWithNoMoreData];
+        }else if (strongSelf.finishCountType == ZZPageFinishCountTypeCuriosity){
+            if(strongSelf.reqResp.respArr.count < strongSelf.rowInPage){
+                [strongSelf.mj_footer endRefreshingWithNoMoreData];
             }
         }else{
             NSAssert(0, @"no implement method");
         }
         //更新到UI
-        [self reloadData];
+        [strongSelf reloadData];
     };
     return success;
 }
