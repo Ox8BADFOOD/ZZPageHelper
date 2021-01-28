@@ -25,7 +25,7 @@ TODO: Add long description of the pod here.
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'bymiracles@163.com' => '350991881@qq.com' }
-  s.source           = { :git => 'https://github.com/bymiracles@163.com/ZZPageHelper.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/Ox8BADFOOD/ZZPageHelper.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '9.0'
