@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '9.0'
+
+target 'ZZPageHelper_Example' do
+  pod 'ZZPageHelper', :path => '../'
+
+  target 'ZZPageHelper_Tests' do
+    inherit! :search_paths
+
+    pod 'FBSnapshotTestCase'
+  end
+end
