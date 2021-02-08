@@ -54,8 +54,12 @@ static char kRowInPage;
 
 #pragma mark -- 刷新和加载
 -(void)refresh{
-    self.readyRefresh();
-    self.loadingShow();
+    if (self.readyRefresh) {
+        self.readyRefresh();
+    }
+    if (self.loadingShow) {
+        self.loadingShow();
+    }
 //    NSAssert([self postReq], @"确认不发请求吗？不发送请求应该用不到分页");
     if (self.postReq) {
         self.postReq(self.currentIndex);
@@ -223,8 +227,11 @@ static char kRowInPage;
 #pragma mark -- reqResp 请求响应
 -(void)setReqResp:(ZZReqResp *)reqResp{
     objc_setAssociatedObject(self, &kZZReqResp, reqResp, OBJC_ASSOCIATION_RETAIN);
-    self.loadingDismiss();
-    if (reqResp.error || !self.reqResp.respArr) {//|| self.reqResp.respArr.count == 0
+    if (self.loadingDismiss) {
+        self.loadingDismiss();
+    }
+    
+    if (reqResp.error) {// || !self.reqResp.respArr || self.reqResp.respArr.count == 0
         self.pageLoadFailure();
         return;
     }
