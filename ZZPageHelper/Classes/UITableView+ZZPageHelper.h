@@ -63,7 +63,7 @@ typedef NS_ENUM(NSUInteger, ZZPageFinishCountType) {
 //外部实现的网络请求
 @property(nonatomic,copy) void(^postReq)(NSInteger index);
 
-- (void)commonInit;
+- (void)commonInitial;
 -(UITableView *)setupMJHead;
 -(UITableView *)setupMJFooter;
 //加载

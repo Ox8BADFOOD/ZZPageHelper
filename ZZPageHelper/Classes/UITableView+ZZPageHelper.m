@@ -29,11 +29,11 @@ static char kRowInPage;
 
 -(instancetype)initPageHelperWithFrame:(CGRect)frame style:(UITableViewStyle)style{
     if (self == [self initWithFrame:frame style:style]) {
-        [self commonInit];
+        [self commonInitial];
     }
     return self;
 }
-- (void)commonInit{
+- (void)commonInitial{
     self.originIndex = 1;
     self.currentIndex = self.originIndex;
     self.dataArr = [NSMutableArray array];
