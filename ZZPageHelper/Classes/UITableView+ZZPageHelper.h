@@ -36,8 +36,7 @@ typedef NS_ENUM(NSUInteger, ZZPageFinishCountType) {
 @property(nonatomic,assign) NSInteger currentIndex;
 //分页中一页请求多少数据
 @property(nonatomic,assign) NSInteger rowInPage;
-//数据源
-@property(nonatomic,strong) NSMutableArray * dataArr;
+
 //加载完成根据maxDataSourceCount/maxIndex判断
 @property(nonatomic,assign) ZZPageFinishCountType finishCountType;
 
@@ -57,6 +56,10 @@ typedef NS_ENUM(NSUInteger, ZZPageFinishCountType) {
 @property(nonatomic,copy,readwrite) void(^loadingShow)(void);
 @property(nonatomic,copy,readwrite) void(^loadingDismiss)(void);
 @property(nonatomic,copy,readwrite) void(^errorShow)(NSString *errDesc);
+
+//尽量不要直接操作数据源，请包装成ZZReqResp的格式设置
+//数据源
+@property(nonatomic,strong) NSMutableArray * dataArr;
 
 //请求的相应
 @property(nonatomic,strong) ZZReqResp *reqResp;
